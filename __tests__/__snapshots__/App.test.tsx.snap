@@ -80,7 +80,7 @@ exports[`should render "Step One" correctly 1`] = `
           Welcome to
           
 
-          React Native 2
+          React Native
         </Text>
       </View>
       <View
