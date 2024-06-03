@@ -16,7 +16,7 @@ it('renders correctly', () => {
   renderer.create(<App />);
 });
 
-it('should render "Step One" correctly', () => {
+it('should content correctly', () => {
   const appContent = renderer.create(<App />).toJSON();
 
   expect(appContent).toMatchSnapshot();
