@@ -16,7 +16,7 @@ it('renders correctly', () => {
   renderer.create(<App />);
 });
 
-it('should content correctly', () => {
+it('should render content correctly', () => {
   const appContent = renderer.create(<App />).toJSON();
 
   expect(appContent).toMatchSnapshot();
