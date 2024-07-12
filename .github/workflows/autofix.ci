@@ -1,4 +1,4 @@
-name: '[CI] React Native'
+name: '[Autofix CI] React Native'
 
 on:
   push:
