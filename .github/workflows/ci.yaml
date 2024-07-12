@@ -1,4 +1,4 @@
-name: '[CI] React Native'
+name: 'autofix.ci'
 
 on:
   push:
@@ -8,10 +8,12 @@ on:
     branches:
       - main
   workflow_dispatch:
+permissions:
+  contents: read
 
 jobs:
   ci:
-    runs-on: [flyci-macos-14-m2, wingman]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -29,20 +31,20 @@ jobs:
           set -euxo pipefail
           yarn install --frozen-lockfile
 
-      - name: Cache Pods
-        uses: actions/cache@v4
-        id: pods-cache
-        with:
-          path: ./ios/Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+      # - name: Cache Pods
+      #   uses: actions/cache@v4
+      #   id: pods-cache
+      #   with:
+      #     path: ./ios/Pods
+      #     key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
 
-      - name: Install pods
-        working-directory: ios
-        env:
-          NO_FLIPPER: 1
-        run: |
-          set -euxo pipefail
-          bundle exec pod install
+      # - name: Install pods
+      #   working-directory: ios
+      #   env:
+      #     NO_FLIPPER: 1
+      #   run: |
+      #     set -euxo pipefail
+      #     bundle exec pod install
 
       - name: Run eslint
         run: |
@@ -53,6 +55,9 @@ jobs:
         run: |
           set -euxo pipefail
           yarn test
+
+      - uses: autofix-ci/action@dd55f44df8f7cdb7a6bf74c78677eb8acd40cd0a
+        if: failure()
 
       # - name: Build iOS
       #   run: |
