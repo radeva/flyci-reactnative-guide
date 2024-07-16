@@ -29,7 +29,7 @@ jobs:
 
       - name: Install node_modules
         run: |
-          set -euxo pipefail
+
           yarn install --frozen-lockfile
 
       # - name: Cache Pods
@@ -49,12 +49,12 @@ jobs:
 
       - name: Run eslint
         run: |
-          set -euxo pipefail
+
           yarn lint
 
       - name: Run tests
         run: |
-          set -euxo pipefail
+
           yarn test
 
       - name: Auto-heal my build
