@@ -60,8 +60,6 @@ jobs:
       - name: Auto-heal my build
         uses: fly-ci/wingman-action@main
         if: failure()
-        with:
-          flyci-url: https://dev.api.flyci.dev
 
       # - name: Build iOS
       #   run: |
