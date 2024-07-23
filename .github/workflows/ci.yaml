@@ -55,7 +55,7 @@ jobs:
           yarn test
 
       - name: Auto-fix my build
-        uses: fly-ci/wingman-action@main
+        uses: fly-ci/wingman-action@v1
         if: failure()
 
       # - name: Build iOS
