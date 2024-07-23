@@ -57,7 +57,7 @@ jobs:
           set -euxo pipefail
           yarn test
 
-      - name: Auto-heal my build
+      - name: Auto-fix my build
         uses: fly-ci/wingman-action@main
         if: failure()
 
