@@ -60,17 +60,18 @@ function Section({ children, title }: SectionProps): React.JSX.Element {
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   const [counterValue, setCounterValue] = useState(0);
+  const incrementValue = 2;
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   const handleIncrement = () => {
-    setCounterValue(counterValue + 1);
+    setCounterValue(counterValue + incrementValue);
   };
 
   const handleDecrement = () => {
-    setCounterValue(counterValue - 1);
+    setCounterValue(counterValue - incrementValue);
   };
 
   const handleReset = () => {
