@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import type { PropsWithChildren } from 'react';
 import {
   SafeAreaView,
@@ -15,6 +15,7 @@ import {
   Text,
   useColorScheme,
   View,
+  TouchableOpacity,
 } from 'react-native';
 
 import {
@@ -58,9 +59,22 @@ function Section({ children, title }: SectionProps): React.JSX.Element {
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const [counterValue, setCounterValue] = useState(0);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
+  const handleIncrement = () => {
+    setCounterValue(counterValue + 1);
+  };
+
+  const handleDecrement = () => {
+    setCounterValue(counterValue - 1);
+  };
+
+  const handleReset = () => {
+    setCounterValue(0);
   };
 
   return (
@@ -87,10 +101,20 @@ function App(): React.JSX.Element {
           <Section title="Debug">
             <DebugInstructions />
           </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
+          <Section title="Counter">
+            <Text style={styles.counterValue} testID={'counterValue'}>
+              {counterValue}
+            </Text>
+            <TouchableOpacity onPress={handleIncrement} style={styles.button}>
+              <Text>Increment</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleDecrement} style={styles.button}>
+              <Text>Decrement</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleReset} style={styles.button}>
+              <Text>Reset</Text>
+            </TouchableOpacity>
           </Section>
-          <LearnMoreLinks />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -113,6 +137,18 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  button: {
+    fontSize: 16,
+    padding: 13,
+    borderRadius: 8,
+    backgroundColor: 'dodgerblue',
+    color: 'white',
+  },
+  counterValue: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: 'black',
   },
 });
 
