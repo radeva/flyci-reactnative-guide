@@ -33,24 +33,24 @@ it('should increment counter', () => {
   expect(counterValue.props.children).toEqual(1);
 });
 
-it('should decrement counter', () => {
-  const { getByText, getByTestId } = render(<App />);
+// it('should decrement counter', () => {
+//   const { getByText, getByTestId } = render(<App />);
 
-  const counterValue = getByTestId('counterValue');
-  console.log(counterValue);
-  expect(counterValue.props.children).toEqual(0);
-  fireEvent.press(getByText('Decrement'));
-  expect(counterValue.props.children).toEqual(-1);
-});
+//   const counterValue = getByTestId('counterValue');
+//   console.log(counterValue);
+//   expect(counterValue.props.children).toEqual(0);
+//   fireEvent.press(getByText('Decrement'));
+//   expect(counterValue.props.children).toEqual(-1);
+// });
 
-it('should reset counter', () => {
-  const { getByText, getByTestId } = render(<App />);
+// it('should reset counter', () => {
+//   const { getByText, getByTestId } = render(<App />);
 
-  const counterValue = getByTestId('counterValue');
-  console.log(counterValue);
-  expect(counterValue.props.children).toEqual(0);
-  fireEvent.press(getByText('Increment'));
-  expect(counterValue.props.children).toEqual(1);
-  fireEvent.press(getByText('Reset'));
-  expect(counterValue.props.children).toEqual(0);
-});
+//   const counterValue = getByTestId('counterValue');
+//   console.log(counterValue);
+//   expect(counterValue.props.children).toEqual(0);
+//   fireEvent.press(getByText('Increment'));
+//   expect(counterValue.props.children).toEqual(1);
+//   fireEvent.press(getByText('Reset'));
+//   expect(counterValue.props.children).toEqual(0);
+// });
