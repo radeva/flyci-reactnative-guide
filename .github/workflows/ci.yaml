@@ -68,5 +68,5 @@ jobs:
           yarn build-android
 
       - name: Fix my build
-        uses: fly-ci/wingman-action@v1
+        uses: fly-ci/wingman-action@main
         if: failure()
