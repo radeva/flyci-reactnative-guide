@@ -59,6 +59,12 @@ function Section({ children, title }: SectionProps): React.JSX.Element {
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
+  /*eslint no-const-assign: "error"*/
+  const a = 0;
+  a = 1;
+
+  console.log(a);
+
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
